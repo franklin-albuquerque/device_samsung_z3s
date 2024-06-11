@@ -2842,7 +2842,7 @@
 	</path>
 
 	<!-- Input mixer settings -->
-		<!-- Capture paths -->
+	<!-- Capture paths -->
 	<path name="route-seriallif-uaif6-to-wdma4">
 		<path name="route-uaif6-to-nsrc4" />
 		<path name="route-nsrc4-to-wdma4" />
@@ -2896,15 +2896,17 @@
 	</path>
 
 	<path name="media-mic">
-		<path name="dev-dual-mic" />
-		<path name="route-seriallif-24bit-to-wdma4" />
-		<path name="route-wdma4-to-tdmdemux0" />
-    		<!-- primary stream node -->
-		<path name="route-tdmdemux0-to-vpcmindai0" />
-    		<!-- fast stream node -->
-		<path name="route-tdmdemux0-to-vpcmindai1" />
-    		<!-- low latency stream node -->
-		<path name="route-tdmdemux0-to-vpcmindai2" />
+    		<!-- nxp bargein using param index 0 -->
+		<ctl name="ABOX Call Path Param" value="0" />
+		<ctl name="ABOX SE Standalone" value="1" />
+		<ctl name="ABOX OEM NXP Mode" value="2" />
+		<path name="dev-multi-mic" />
+		<path name="set-call-seriallif-wdma4-16bit-config" />
+		<path name="route-seriallif-16bit-to-wdma4" />
+		<path name="route-wdma4-to-tdmdemux3" />
+		<path name="route-call-spkrcv-refdata-vssadapter_b" />
+		<path name="route-tdmdemux3-to-vssadapter_a" />
+		<path name="route-vssadapter-txse1-chmatcher-vpcmdai0" />
 	</path>
 
 	<path name="media-2nd-mic">
@@ -3144,8 +3146,16 @@
 
 	<!-- Recognition Input paths -->
 	<path name="recognition-mic">
-		<path name="media-mic" />
 		<ctl name="ABOX SE Standalone" value="10" />
+		<path name="dev-main-mic" />
+		<path name="route-seriallif-24bit-to-wdma4" />
+		<path name="route-wdma4-to-tdmdemux0" />
+    		<!-- primary stream node -->
+		<path name="route-tdmdemux0-to-vpcmindai0" />
+    		<!-- fast stream node -->
+		<path name="route-tdmdemux0-to-vpcmindai1" />
+    		<!-- low latency stream node -->
+		<path name="route-tdmdemux0-to-vpcmindai2" />
 	</path>
 
 	<path name="recognition-2nd-mic">
@@ -4719,15 +4729,6 @@
 		<path name="media-2nd-mic" />
 	</path>
 
-	<!-- Device Gain Settings -->
-	<!-- Default Gain -->
-	<ctl name="VTS HPF SEL0" value="38" />
-	<ctl name="VTS HPF SEL1" value="38" />
-	<ctl name="VTS HPF SEL2" value="38" />
-	<ctl name="VTS HPF EN0" value="enable" />
-	<ctl name="VTS HPF EN1" value="enable" />
-	<ctl name="VTS HPF EN2" value="enable" />
-
 	<!-- Default Gain -->
 	<ctl name="VTS HPF SEL0" value="38" />
 	<ctl name="VTS HPF SEL1" value="38" />
@@ -4965,37 +4966,37 @@
 		<ctl name="Left Digital PCM Volume" value="789" />
 	</path>
 
-    <path name="gain-voip-speaker">
+	<path name="gain-voip-speaker">
 		<ctl name="Right AMP PCM Gain" value="18" />
 		<ctl name="Right Digital PCM Volume" value="817" />
-    </path>
+	</path>
 
-    <path name="gain-voip-dual-speaker">
+	<path name="gain-voip-dual-speaker">
 		<ctl name="Left AMP PCM Gain" value="18" />
 		<ctl name="Left Digital PCM Volume" value="817" />
 		<ctl name="Right AMP PCM Gain" value="18" />
 		<ctl name="Right Digital PCM Volume" value="817" />
-    </path>
+	</path>
 
-    <path name="gain-voip-dex-speaker">
+	<path name="gain-voip-dex-speaker">
 		<ctl name="Left AMP PCM Gain" value="18" />
 		<ctl name="Left Digital PCM Volume" value="817" />
 		<ctl name="Right AMP PCM Gain" value="18" />
 		<ctl name="Right Digital PCM Volume" value="817" />
-    </path>
+	</path>
 
-    <path name="gain-voip-dex-dual-speaker">
+	<path name="gain-voip-dex-dual-speaker">
 		<ctl name="Left AMP PCM Gain" value="18" />
 		<ctl name="Left Digital PCM Volume" value="817" />
 		<ctl name="Right AMP PCM Gain" value="18" />
 		<ctl name="Right Digital PCM Volume" value="817" />
-    </path>
+	</path>
 
-    <path name="gain-voip-bt-sco-headset">
-    </path>
+	<path name="gain-voip-bt-sco-headset">
+	</path>
 
-    <path name="gain-voip-usb-headset">
-    </path>
+	<path name="gain-voip-usb-headset">
+	</path>
 
 	<!-- wificall nb playback volume -->
 	<path name="gain-wificall_nb-handset">
@@ -5515,8 +5516,8 @@
 	<path name="gain-fm_radio-usb-headset">
 	</path>
 
-    <path name="gain-fm_radio-bt-a2dp-headphone">
-    </path>
+	<path name="gain-fm_radio-bt-a2dp-headphone">
+	</path>
 	
 	<path name="gain-karaoke-dual-speaker">
 		<ctl name="Left AMP PCM Gain" value="17" />
@@ -5555,10 +5556,10 @@
 	<!-- Input stage volume -->
 	<!-- media input volume -->
 	<path name="gain-media-mic">
-		<ctl name="VTS DMIC GAIN MODE0" value="8738" />
-		<ctl name="VTS DMIC GAIN MODE1" value="8738" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="21" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="21" />
+		<ctl name="VTS DMIC GAIN MODE0" value="6168" />
+		<ctl name="VTS DMIC GAIN MODE1" value="6168" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="27" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="17" />
 	</path>
 
 	<path name="gain-media-2nd-mic">
@@ -5579,8 +5580,7 @@
 
 	<!-- voice recording input volume -->
 	<path name="gain-recording-mic">
-		<ctl name="VTS DMIC GAIN MODE0" value="6168" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="0" />
+		<path name="gain-media-mic" />
 	</path>
 
 	<path name="gain-recording-2nd-mic">
@@ -5633,8 +5633,7 @@
 
 	<!-- camcorder input volume -->
 	<path name="gain-camcorder-mic">
-		<ctl name="VTS DMIC GAIN MODE0" value="6168" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="0" />
+		<path name="gain-media-mic" />
 	</path>
 
 	<path name="gain-camcorder-2nd-mic">
@@ -5653,9 +5652,9 @@
 		<ctl name="VTS DMIC GAIN MODE0" value="6168" />
 		<ctl name="VTS DMIC GAIN MODE1" value="6168" />
 		<ctl name="VTS DMIC GAIN MODE2" value="6168" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="19" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="19" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="19" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="34" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="34" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="34" />
 	</path>
 
 	<path name="gain-camcorder-headphone-mic">
@@ -5677,8 +5676,8 @@
 
 	<!-- recognition input volume -->
 	<path name="gain-recognition-mic">
-		<ctl name="VTS DMIC GAIN MODE0" value="5140" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="32" />
+		<ctl name="VTS DMIC GAIN MODE0" value="8738" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="16" />
 	</path>
 
 	<path name="gain-recognition-2nd-mic">
@@ -7082,33 +7081,33 @@
 	<!-- echo(rms) test input volume -->
 	<path name="gain-echo_test-mic">
 		<ctl name="VTS DMIC GAIN MODE0" value="5911" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="12" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="18" />
 	</path>
 
 	<path name="gain-echo_test-2nd-mic">
 		<ctl name="VTS DMIC GAIN MODE1" value="5911" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="11" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="9" />
 	</path>
 
 	<path name="gain-echo_test-3rd-mic">
 		<ctl name="VTS DMIC GAIN MODE2" value="6168" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="25" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="21" />
 	</path>
 
 	<path name="gain-echo_test-dualmic">
 		<ctl name="VTS DMIC GAIN MODE0" value="6168" />
-		<ctl name="VTS DMIC GAIN MODE1" value="5911" />
+		<ctl name="VTS DMIC GAIN MODE1" value="6168" />
 		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="34" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="8" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="17" />
 	</path>
 
 	<path name="gain-echo_test-multi-mic">
 		<ctl name="VTS DMIC GAIN MODE0" value="6168" />
-		<ctl name="VTS DMIC GAIN MODE1" value="5911" />
+		<ctl name="VTS DMIC GAIN MODE1" value="6168" />
 		<ctl name="VTS DMIC GAIN MODE2" value="6168" />
 		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="34" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="8" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="25" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="17" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="21" />
 	</path>
 
 	<path name="gain-echo_thd_test-mic">
