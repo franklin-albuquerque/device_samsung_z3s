@@ -7094,7 +7094,7 @@
 
 	<path name="gain-echo_test-3rd-mic">
 		<ctl name="VTS DMIC GAIN MODE2" value="6168" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="25" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="21" />
 	</path>
 
 	<path name="gain-echo_test-dualmic">
@@ -7110,7 +7110,7 @@
 		<ctl name="VTS DMIC GAIN MODE2" value="6168" />
 		<ctl name="VTS CONTROL DMIC AUD GAIN0" value="34" />
 		<ctl name="VTS CONTROL DMIC AUD GAIN1" value="17" />
-		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="25" />
+		<ctl name="VTS CONTROL DMIC AUD GAIN2" value="21" />
 	</path>
 
 	<path name="gain-echo_thd_test-mic">

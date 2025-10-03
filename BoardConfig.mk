@@ -16,7 +16,7 @@
 # inherit from common
 include device/samsung/universal9830-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/samsung/y2s
+DEVICE_PATH := device/samsung/z3s
 
 # Audio
 $(call soong_config_set,universal9830AudioVars,use_bta2dp_offload,false)
@@ -35,13 +35,13 @@ SOONG_CONFIG_samsungCameraVars += extra_ids
 SOONG_CONFIG_samsungCameraVars_extra_ids := 52
 
 # Display
-TARGET_SCREEN_DENSITY := 600
+TARGET_SCREEN_DENSITY := 560
 
 # Kernel
-TARGET_KERNEL_CONFIG += y2s.config
+TARGET_KERNEL_CONFIG += z3s.config
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := y2s
+TARGET_OTA_ASSERT_DEVICE := z3s
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
@@ -62,4 +62,4 @@ WPA_SUPPLICANT_VERSION                        := VER_0_8_X
 $(call soong_config_set,wpa_supplicant_8,board_wlan_bcmdhd_sae,true)
 
 # inherit from the proprietary version
--include vendor/samsung/y2s/BoardConfigVendor.mk
+-include vendor/samsung/z3s/BoardConfigVendor.mk

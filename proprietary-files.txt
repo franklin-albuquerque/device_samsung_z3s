@@ -56,10 +56,11 @@ vendor/firmware/cs40l20.bin
 vendor/firmware/is_lib.bin
 vendor/firmware/is_mcu_fw.bin
 vendor/firmware/is_rta.bin
-vendor/firmware/setfile_2la.bin
-vendor/firmware/setfile_2ld.bin
-vendor/firmware/setfile_3j1.bin
-vendor/firmware/setfile_gw2.bin
+vendor/firmware/setfile_2l3.bin
+vendor/firmware/setfile_gh1.bin
+vendor/firmware/setfile_hm1.bin
+vendor/firmware/setfile_imx586.bin
+vendor/firmware/a96t365_z3s_eur.bin
 
 # GPS/GNSS
 vendor/bin/hw/gpsd
