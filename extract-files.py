@@ -27,7 +27,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libexynoscamera3.so': blob_fixup()
         .sig_replace('14 00 00 94 0A 00 00 14', '1F 20 03 D5 0A 00 00 14')
         .sig_replace('A8 FF FF 97 0A 00 00 14', '1F 20 03 D5 0A 00 00 14')
-        .sig_replace('AB 02 20 36', '1F 20 03 D5'),
+        .sig_replace('8B 02 20 36', '1F 20 03 D5'),
     'vendor/lib64/sensors.sensorhub.so': blob_fixup()
         .add_needed('libutils-v32.so')
         .remove_needed('libhidltransport.so')
